@@ -1,0 +1,197 @@
+<html>
+<head>
+    <Title>Challenge-2031</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
+
+</head>
+<body>
+<!-- Library to configure chatter time -->
+<script src="https://dl.dropbox.com/u/17694489/chattertime.js"></script>
+
+
+<style>
+#outputpanel {
+    background-color: #000;
+    color : #eee;
+    overflow-y:scroll;
+    height: 200px;
+}
+</style>
+
+<div class="container">
+    <h1>Challenge 2031</h1>
+    <div>
+        <span class="text-info"><em>Try out here :</em></span>
+        <input type="text" placeholder="chatter time" id="timeinput" value="2013-01-23T15:03:49.000Z"/>
+        <input type="button" class="btn btn-mini btn-inverse" class="span7" value="Show Time" onclick="converttime();"/>
+        <input type="button" class="btn btn-mini btn-inverse" class="span7" value="Clear Output" onclick="clearoutput()"/>
+    </div>
+    <div class="row">
+        <div id="outputpanel"></div>
+    </div>
+    <h2>Format Demo</h2>
+    <table class="table table-bordered table-hovered table-condensed">
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Usage</th>
+        </tr>
+        <tr>
+            <td>2013-01-23T15:03:49.000Z</td>
+            <td>
+                <script>document.write(chattertime.show('2013-01-23T15:03:49.000Z'))</script>
+            </td>
+            <td>
+                <code>
+                    chattertime.show('2013-01-23T15:03:49.000Z');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-22T15:03:49.000Z</td>
+            <td><script>document.write(chattertime.show('2013-01-22T15:03:49.000Z'))</script>
+            </td>
+            <td>
+                <code>
+                    chattertime.show('2013-01-22T15:03:49.000Z');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-21T15:03:49.000Z</td>
+            <td><script>document.write(chattertime.show('2013-01-21T15:03:49.000Z'))</script>
+            </td>
+            <td>
+                <code>
+                    chattertime.show('2013-01-21T15:03:49.000Z');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-19T15:03:49.000Z</td>
+            <td><script>document.write(chattertime.show('2013-01-19T15:03:49.000Z'))</script>
+            </td>
+            <td>
+                <code>
+                    chattertime.show('2013-01-19T15:03:49.000Z');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-13T15:03:49.000Z</td>
+            <td><script>chattertime.init({rangedaysago:10});document.write(chattertime.show('2013-01-13T15:03:49.000Z'))</script>
+            </td>
+            <td>
+                <code>
+                    // broad the range up to 10 days <br />
+                    chattertime.init({rangedaysago:10});<br />
+                    chattertime.show('2013-01-23T15:03:49.000Z');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-23T15:03:49.000Z</td>
+            <td>
+                <script>
+                    chattertime.init(
+                        {todayformat : "[THIS IS TODAY] YYYY-MM-DD "
+                    });
+                    document.write(chattertime.show('2013-01-23T15:03:49.000Z'));
+                </script>
+            </td>
+            <td>
+                <code>
+                    // change the text for today format <br />
+                    chattertime.init({ <br />
+                        todayformat : "[THIS IS TODAY] YYYY-MM-DD " <br />
+                    }); <br />
+                    chattertime.show('2013-01-23T15:03:49.000Z');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-10</td>
+            <td>
+                <script>document.write(chattertime.show('2013-01-13'));</script>
+                <br /><br />
+                <script>chattertime.init({time_format_error:"Wrong Date Format!"});document.write(chattertime.show('2013-01-13'));</script>
+            </td>
+            <td>
+                <code>
+                    // using default error string <br />
+                    chattertime.show('2013-01-23'); <br />
+                    // change the error string <br />
+                    chattertime.init({time_format_error:"Wrong Date Format!"});<br />
+                    chattertime.show('2013-01-23');
+                </code>
+            </td>
+        </tr>
+        <tr>
+            <td>2013-01-10</td>
+            <td><script>chattertime.init({inputformat:"YYYY-MM-DD"});document.write(chattertime.show('2013-01-13'))</script>
+            </td>
+            <td>
+                <code>
+                    // change the input format <br />
+                    chattertime.init({inputformat:"YYYY-MM-DD"});<br />
+                    chattertime.show('2013-01-23');
+                </code>
+            </td>
+        </tr>
+    </table>
+    <h3>How to Use</h3>
+    <pre>
+        // initialization (optional) <br />
+        chattertime.init();<br />
+        // usage <br />
+        chattertime.show(<time in string>); <br />
+        chattertime.show('2013-01-23T15:03:49.000Z'); <br />
+        Output :
+        <script>chattertime.init_default();document.write(chattertime.show('2013-01-23T15:03:49.000Z'))</script> <br />
+        // reset the default settings <br />
+        chattertime.init_default();
+    </pre>
+
+    <h3>Property Customization</h3>
+    <pre>
+    chattertime.init({
+        "inputformat" : [specify the time format of the input, default: YYYY-MM-DDTHH:mm:ss Z],
+        "rangedaysago": [how many # days ago should be shown in the format, default 2 ],
+        "time_format_error" : [error string when time is not in the correct input format],
+        "todayformat" : [Format to be shown when the input time is today],
+        "yesterdayformat" : [format to be shown when the input time is yesterday],
+        "daysagoformat" : [Format to be shown if the input is still in the rage of the `rangedaysago`],
+        "otherformat" : [Default Format to be shown]
+    });
+    </pre>
+</div>
+
+
+<script>
+function clearoutput(){
+    $("#outputpanel").html("");
+}
+
+function writeoutput(newstr){
+    var oldstr = $("#outputpanel").html();
+    $("#outputpanel").html(oldstr + "<br />" + newstr);
+}
+
+function converttime(){
+    // for input, keep defaulting to standard
+    chattertime.init_default();
+    writeoutput(chattertime.show($("#timeinput").val()));
+}
+
+</script>
+
+
+</body>
+
+
+</html>
