@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Chattertime by smulyono</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Chattertime</h1>
+        <p class="header">Convert Salesforce Chatter Time into readable format</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/smulyono/chattertime/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/smulyono/chattertime/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/smulyono/chattertime">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/smulyono">smulyono</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="chattertime-javascript-library" class="anchor" href="#chattertime-javascript-library"><span class="octicon octicon-link"></span></a>Chattertime (Javascript Library)</h1>
+
+<h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>Javascript library which takes Salesforce Chatter Time format and convert them into more readable format.</p>
+
+<h2>
+<a name="library-used" class="anchor" href="#library-used"><span class="octicon octicon-link"></span></a>Library Used</h2>
+
+<ul>
+<li>JQuery 1.9.0</li>
+<li>Moment JS 1.7.2</li>
+</ul><h2>
+<a name="how-to-use-copy-this-into-your-html-page" class="anchor" href="#how-to-use-copy-this-into-your-html-page"><span class="octicon octicon-link"></span></a>How to use (Copy this into your HTML page)</h2>
+
+<pre><code>// include the library (library is also shared in dropbox public folder)
+&lt;script src="https://dl.dropboxusercontent.com/u/17694489/chattertime.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    // initialization (optional)
+    chattertime.init();
+
+    // usage
+    // chattertime.show(&lt;time in string&gt;);
+    document.write(chattertime.show('2013-01-23T15:03:49.000Z'));
+
+    // reset the default settings
+    chattertime.init_default();
+&lt;/script&gt;
+
+</code></pre>
+
+<h2>
+<a name="property-customization" class="anchor" href="#property-customization"><span class="octicon octicon-link"></span></a>Property Customization</h2>
+
+<pre><code>chattertime.init({
+    "inputformat" : [specify the time format of the input, default: YYYY-MM-DDTHH:mm:ss Z],
+    "rangedaysago": [how many # days ago should be shown in the format, default 2 ],
+    "time_format_error" : [error string when time is not in the correct input format],
+    "todayformat" : [Format to be shown when the input time is today],
+    "yesterdayformat" : [format to be shown when the input time is yesterday],
+    "daysagoformat" : [Format to be shown if the input is still in the rage of the `rangedaysago`],
+    "otherformat" : [Default Format to be shown]
+});
+
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
